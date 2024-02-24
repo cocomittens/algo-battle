@@ -14,7 +14,7 @@ export const darkTheme = () => ({
     },
   },
   typography: {
-    fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+    fontFamily: '"Source Code Pro", "Anonymous Pro", "Arial", sans-serif',
     fontSize: 14,
     h1: {
       fontWeight: 500,
