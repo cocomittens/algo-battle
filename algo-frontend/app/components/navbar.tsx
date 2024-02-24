@@ -97,16 +97,13 @@ export default function NavBar() {
                 >
                   <MenuItem onClick={handleClose}>Profile</MenuItem>
                   <MenuItem onClick={handleClose}>My account</MenuItem>
+                  <MenuItem onClick={handleClose}>Log out</MenuItem>
                 </Menu>
               </div>
             )}
-            {auth ? (
+            {!auth && (
               <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                Log Out
-              </Typography>
-            ) : (
-              <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                Log In
+                Sign Up
               </Typography>
             )}
           </Toolbar>
