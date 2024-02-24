@@ -15,6 +15,12 @@ import Menu from "@mui/material/Menu";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { darkTheme } from "../theme/dark";
 
+// logged in:
+// home, notifications, profile, logout
+
+// logged out:
+// login, signup
+
 export default function NavBar() {
   const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -60,7 +66,7 @@ export default function NavBar() {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              Photos
+              Algo Arena
             </Typography>
             {auth && (
               <div>
@@ -93,6 +99,15 @@ export default function NavBar() {
                   <MenuItem onClick={handleClose}>My account</MenuItem>
                 </Menu>
               </div>
+            )}
+            {auth ? (
+              <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                Log Out
+              </Typography>
+            ) : (
+              <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                Log In
+              </Typography>
             )}
           </Toolbar>
         </AppBar>
