@@ -12,6 +12,7 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { darkTheme } from "../theme/dark";
 
 function Copyright(props: any) {
   return (
@@ -31,8 +32,7 @@ function Copyright(props: any) {
   );
 }
 
-// TODO remove, this demo shouldn't need to reset the theme.
-const defaultTheme = createTheme();
+const defaultTheme = createTheme(darkTheme());
 
 export default function SignUp() {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
