@@ -1,6 +1,7 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.contrib.auth.models import User
+from rest_framework import generics
+from .serializers import UserProfileSerializer
 
-
-def index(request):
-    return HttpResponse("Hello, world. You're at the users index.")
+class UserList(generics.ListAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserProfileSerializer
