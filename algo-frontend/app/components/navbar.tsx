@@ -16,7 +16,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { darkTheme } from "../theme/dark";
 
 // logged in:
-// home, notifications, profile, logout
+// home, play, notifications, profile, logout
 
 // logged out:
 // login, signup
@@ -65,9 +65,12 @@ export default function NavBar() {
             >
               <MenuIcon />
             </IconButton>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              Algo Arena
-            </Typography>
+            {auth && (
+              <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                Play
+              </Typography>
+            )}
+
             {auth && (
               <div>
                 <IconButton
