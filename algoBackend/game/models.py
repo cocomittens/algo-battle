@@ -10,10 +10,5 @@ class Game(models.Model):
     opponent = models.TextField(max_length=60, blank=True)
 
     def __str__(self):
-        return self.id
+        return str(self.id)
     
-@receiver(post_save, sender=Game)
-def create_game(sender, instance, created, **kwargs):
-    if created:
-        Game.objects.create(game=instance)
-    instance.game.save()
