@@ -1,4 +1,11 @@
 import NavBar from "../components/navbar";
+import { fetchUserProfile } from "../util/user";
+
 export default function Profile() {
-  return <NavBar></NavBar>;
+  return (
+    <div>
+      <NavBar></NavBar>
+      <h1>Profile</h1>
+    </div>
+  );
 }
