@@ -8,8 +8,6 @@ class GameList(viewsets.ModelViewSet):
     serializer_class = GameSerializer
 
     def create(self, request, *args, **kwargs):
-        # You can use serializer.save() to create a new Game instance.
-        # DRF's request.data will contain the data sent in the POST request.
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
