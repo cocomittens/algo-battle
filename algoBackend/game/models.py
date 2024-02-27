@@ -18,9 +18,9 @@ class Game(models.Model):
 class Solution(models.Model):
     id = models.AutoField(primary_key=True)
     session = models.TextField(max_length=1000, blank=True)
-    problem_id = models.CharField(max_length=50)
-    solution_code = models.CharField()
-    language = models.CharField(max_length=30)
+    question_id = models.CharField(max_length=50)
+    typed_code = models.CharField()
+    lang = models.CharField(max_length=30)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

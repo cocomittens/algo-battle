@@ -9,4 +9,4 @@ class GameSerializer(serializers.ModelSerializer):
 class SolutionSerializer(serializers.Serializer):
     class Meta:
         model = Solution
-        fields = ('id', 'session', 'problem_id', 'solution_code', 'language')
+        fields = ('id', 'session', 'question_id', 'typed_code', 'lang')

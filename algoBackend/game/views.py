@@ -24,15 +24,17 @@ class SubmitSolutionView(APIView):
         serializer = SolutionSubmissionSerializer(data=request.data)
         if serializer.is_valid():
             data = serializer.validated_data
-            url = "https://leetcode.com/api/problems/solution-submit/"
+            # todo: update placeholder
+            slug = "median-of-two-sorted-arrays"
+            url = f"https://leetcode.com/problems/{slug}/submit/"
             headers = {
                 "Cookie": f"LEETCODE_SESSION={data['session']}",
                 "Content-Type": "application/json",
             }
             response = requests.post(url, headers=headers, json={
-                "problem_id": data['problem_id'],
-                "language": data['language'],
-                "typed_code": data['solution_code'],
+                "question_id": data['question_id'],
+                "lang": data['lang'],
+                "typed_code": data['typed_code'],
             })
             if response.status_code == 200:
                 return Response({"message": "Submission successful!"})
