@@ -1,4 +1,6 @@
 from django.db import models
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 # Create your models here.
 class Game(models.Model):
@@ -9,3 +11,9 @@ class Game(models.Model):
 
     def __str__(self):
         return self.id
+    
+@receiver(post_save, sender=Game)
+def create_game(sender, instance, created, **kwargs):
+    if created:
+        Game.objects.create(game=instance)
+    instance.game.save()
