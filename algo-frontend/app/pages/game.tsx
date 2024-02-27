@@ -1,4 +1,12 @@
+import { useRouter } from "next/navigation";
 import NavBar from "../components/navbar";
+
 export default function Game() {
-  return <NavBar></NavBar>;
+  const router = useRouter();
+
+  return (
+    <div>
+      <NavBar></NavBar>
+    </div>
+  );
 }
