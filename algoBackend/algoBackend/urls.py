@@ -21,8 +21,9 @@ from game.views import GameList
 from users.views import UserList
 
 router = routers.DefaultRouter()
-router.register(r'messages', GameList)
 router.register(r'users', UserList)
+router.register(r'game', GameList)
+
 
 
 urlpatterns = [
