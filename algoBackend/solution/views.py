@@ -52,9 +52,7 @@ class SubmitSolutionView(viewsets.ModelViewSet):
             response = requests.post(f"https://leetcode.com/problems/median-of-two-sorted-arrays/submit/", data=json_data, headers=headers)
             resp_data = response.json()
             submission_id = resp_data['submission_id']
-            print('submission_id: ', submission_id)
             status_response = requests.get(f"https://leetcode.com/submissions/detail/{submission_id}/check/", headers=headers)
-            print('status_response: ', status_response)
             status_data = status_response.json()
             print('status_data: ', status_data, status_data['state'])
             while status_data['state'] == 'PENDING':
