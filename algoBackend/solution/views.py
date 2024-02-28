@@ -31,10 +31,12 @@ class SubmitSolutionView(viewsets.ModelViewSet):
     
 
     def create(self, request, *args, **kwargs):
+        print(request.data)
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
 
+        question_id = request.data.get('question_id')
         lang = request.data.get('lang')
         code = request.data.get('typed_code')
         if not lang or not code:
@@ -43,7 +45,7 @@ class SubmitSolutionView(viewsets.ModelViewSet):
         lang_str = self.lang_converter(lang)
         try:
             json_data = json.dumps({
-                "question_id": 4,
+                "question_id": question_id,
                 "lang": lang_str,
                 "typed_code": code,
             })

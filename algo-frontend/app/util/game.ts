@@ -10,7 +10,7 @@ export const fetchGameData = async (id: number) => {
 export const updateGameData = async (id: number, data: any) => {
   const response = await fetch(`${GAME_API_ENDPOINT}${id}/`, {
     // todo: check method
-    method: "PUT",
+    method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
@@ -21,16 +21,12 @@ export const updateGameData = async (id: number, data: any) => {
 };
 
 export const sendSubmission = async (data: any) => {
-  const response = await fetch(`${SUBMIT_API_ENDPOINT}${data.id}/`, {
+  const response = await fetch(`${SUBMIT_API_ENDPOINT}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({
-      lang: data.language,
-      typed_code: data.code,
-      question_id: data.question_id,
-    }),
+    body: JSON.stringify(data),
   });
   const responseData = await response.json();
   return responseData;
