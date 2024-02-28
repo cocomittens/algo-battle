@@ -26,7 +26,11 @@ export const sendSubmission = async (data: any) => {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(data),
+    body: JSON.stringify({
+      lang: data.language,
+      typed_code: data.code,
+      question_id: data.question_id,
+    }),
   });
   const responseData = await response.json();
   return responseData;
