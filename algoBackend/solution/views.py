@@ -66,7 +66,7 @@ class SubmitSolutionView(viewsets.ModelViewSet):
 
             # Add status and result to the serializer
             serializer.instance.status = status_data['state']
-            serializer.instance.result = status_data['status_runtime']
+            serializer.instance.result = status_data['status_msg']
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         
