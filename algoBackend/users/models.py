@@ -20,7 +20,7 @@ def create_user_profile(sender, instance, created, **kwargs):
 
 class UserSession(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    session_cookie = models.TextField(max_length=100, blank=True)
+    session_cookie = models.TextField(max_length=1000, blank=True)
     csrf_token = models.CharField(max_length=200, blank=True)
 
     def __str__(self):

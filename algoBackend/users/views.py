@@ -4,7 +4,6 @@ from .serializers import UserProfileSerializer, UserRegistrationSerializer, User
 from django.contrib.auth import authenticate, login
 from rest_framework.response import Response
 from rest_framework import status
-from rest_framework.views import APIView
 from rest_framework.permissions import AllowAny
 
 class UserList(viewsets.ModelViewSet):
@@ -22,7 +21,7 @@ class SessionViewSet(viewsets.ModelViewSet):
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
 
-class LoginView(APIView):
+class LoginView(viewsets.ModelViewSet):
     permission_classes = [AllowAny]
 
     def post(self, request, *args, **kwargs):
@@ -35,7 +34,7 @@ class LoginView(APIView):
         else:
             return Response({"message": "Invalid credentials"}, status=status.HTTP_401_UNAUTHORIZED)
 
-class SignupView(APIView):
+class SignupView(viewsets.ModelViewSet):
     def post(self, request):
         serializer = UserRegistrationSerializer(data=request.data)
         if serializer.is_valid():

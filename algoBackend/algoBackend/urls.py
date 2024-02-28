@@ -18,11 +18,14 @@ from django.contrib import admin
 from django.urls import include, path
 from rest_framework import routers
 from game.views import GameList
-from users.views import UserList
+from users.views import UserList, LoginView, SignupView, SessionViewSet
 from solution.views import SubmitSolutionView
 
 router = routers.DefaultRouter()
-router.register(r'users', UserList)
+router.register(r'users', UserList, basename='user')
+router.register(r'login', LoginView, basename='login')
+router.register(r'signup', SignupView, basename='signup')
+router.register(r'session', SessionViewSet, basename='session')
 router.register(r'game', GameList)
 router.register(r'submit', SubmitSolutionView)
 

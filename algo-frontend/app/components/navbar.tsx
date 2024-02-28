@@ -12,6 +12,8 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormGroup from "@mui/material/FormGroup";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
+import Link from "@mui/material/Link";
+
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { darkTheme } from "../theme/dark";
 
@@ -67,7 +69,7 @@ export default function NavBar() {
             </IconButton>
             {auth && (
               <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                Play
+                <Link href="#game">Play</Link>
               </Typography>
             )}
 
