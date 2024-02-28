@@ -69,7 +69,9 @@ export default function NavBar() {
             </IconButton>
             {auth && (
               <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                <Link href="#game">Play</Link>
+                <Link href="#game" color="#111">
+                  Play
+                </Link>
               </Typography>
             )}
 
