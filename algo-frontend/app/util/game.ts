@@ -1,27 +1,33 @@
-const USER_API_ENDPOINT = "http://localhost:8000/api/users/";
+const GAME_API_ENDPOINT = "http://localhost:8000/api/game/";
+const SUBMIT_API_ENDPOINT = "http://localhost:8000/api/submit/";
 
-export const fetchUserProfile = async (id: number) => {
-  const response = await fetch(`${USER_API_ENDPOINT}${id}/`);
+export const fetchGameData = async (id: number) => {
+  const response = await fetch(`${GAME_API_ENDPOINT}${id}/`);
   const data = await response.json();
   return data;
 };
 
-export const createUser = async ({
-  username,
-  email,
-  password,
-}: {
-  username: string;
-  email: string;
-  password: string;
-}) => {
-  const response = await fetch(USER_API_ENDPOINT, {
+export const updateGameData = async (id: number, data: any) => {
+  const response = await fetch(`${GAME_API_ENDPOINT}${id}/`, {
+    // todo: check method
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+  const responseData = await response.json();
+  return responseData;
+};
+
+export const sendSubmission = async (data: any) => {
+  const response = await fetch(`${SUBMIT_API_ENDPOINT}${data.id}/`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ username, email, password }),
+    body: JSON.stringify(data),
   });
-  const data = await response.json();
-  return data;
+  const responseData = await response.json();
+  return responseData;
 };
