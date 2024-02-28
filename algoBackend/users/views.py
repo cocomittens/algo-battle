@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 from rest_framework import viewsets
-from .serializers import UserProfileSerializer, UserRegistrationSerializer
+from .serializers import UserProfileSerializer, UserRegistrationSerializer, UserSessionSerializer
 from django.contrib.auth import authenticate, login
 from rest_framework.response import Response
 from rest_framework import status
@@ -10,6 +10,17 @@ from rest_framework.permissions import AllowAny
 class UserList(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserProfileSerializer
+
+class SessionViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSessionSerializer
+
+    def get_queryset(self):
+        user = self.request.user
+        return User.objects.filter(username=user.username)
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
 
 class LoginView(APIView):
     permission_classes = [AllowAny]
