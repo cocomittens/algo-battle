@@ -35,7 +35,7 @@ export const login = async ({
   username: string;
   password: string;
 }) => {
-  const response = await fetch(USER_API_ENDPOINT, {
+  const response = await fetch(LOGIN_API_ENDPOINT, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -55,7 +55,7 @@ export const signup = async ({
   email: string;
   password: string;
 }) => {
-  const response = await fetch(USER_API_ENDPOINT, {
+  const response = await fetch(SIGNUP_API_ENDPOINT, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
