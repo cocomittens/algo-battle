@@ -19,12 +19,12 @@ from django.urls import include, path
 from rest_framework import routers
 from game.views import GameList
 from users.views import UserList
+from solution.views import SubmitSolutionView
 
 router = routers.DefaultRouter()
 router.register(r'users', UserList)
 router.register(r'game', GameList)
-
-
+router.register(r'submit', SubmitSolutionView)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
