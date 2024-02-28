@@ -65,7 +65,11 @@ class SubmitSolutionView(viewsets.ModelViewSet):
             time.sleep(1)
 
             # Add status and result to the serializer
-
+            serializer.instance.status = status_data['state']
+            serializer.instance.result = status_data['status_runtime']
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        
         except Exception as e:
             logger.error(f"Error submitting solution: {e}")
             return Response({"error": "Failed to submit solution."}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
