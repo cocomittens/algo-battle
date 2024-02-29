@@ -50,6 +50,9 @@ export default function Game() {
               tempus varius metus sit amet condimentum. Pellentesque pretium
               turpis eu nisi aliquet, vitae facilisis nulla pulvinar.
             </Typography>
+            <Typography variant="h3" textAlign="center">
+              Hints remaining: 3
+            </Typography>
           </Grid>
           <Grid container item height="30vh" overflow="scroll">
             <Grid item xs={12} bgcolor="#333">

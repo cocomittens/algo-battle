@@ -87,7 +87,7 @@ export default function NavBar({ isGame = false, gameData }: NavBarProps) {
             >
               <MenuIcon />
             </IconButton>
-            {auth && (
+            {!isGame && auth && (
               <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                 <Link href="#game" color="#111">
                   Play
@@ -95,9 +95,36 @@ export default function NavBar({ isGame = false, gameData }: NavBarProps) {
               </Typography>
             )}
             {isGame && (
-              <Typography onClick={handleSubmit} variant="h6">
-                Submit
-              </Typography>
+              <>
+                <Typography
+                  onClick={handleSubmit}
+                  variant="h6"
+                  sx={{ flexGrow: 1 }}
+                >
+                  29:30
+                </Typography>
+                <Typography
+                  onClick={handleSubmit}
+                  variant="h6"
+                  sx={{ flexGrow: 1 }}
+                >
+                  317
+                </Typography>
+                <Typography
+                  onClick={handleSubmit}
+                  variant="h6"
+                  sx={{ flexGrow: 1 }}
+                >
+                  Submit
+                </Typography>
+                <Typography
+                  onClick={handleSubmit}
+                  variant="h6"
+                  sx={{ flexGrow: 1 }}
+                >
+                  420
+                </Typography>
+              </>
             )}
 
             {auth && (
