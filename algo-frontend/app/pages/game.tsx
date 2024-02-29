@@ -56,6 +56,8 @@ export default function Game() {
           </Grid>
           <Grid container item height="30vh" overflow="scroll">
             <Grid item xs={12} bgcolor="#333">
+              <Typography>Cat has joined the game.</Typography>
+              <Typography>Dog has joined the game.</Typography>
               <Typography>Cat: yooo</Typography>
             </Grid>
             <Grid item xs={12}>
