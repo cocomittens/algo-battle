@@ -65,17 +65,13 @@ export default function Game() {
         </Grid>
         <Grid container item xs={6} height="30vh">
           <Grid item>
-            <CodeMirror value={submission.typed_code} height="20vh" />
+            <CodeMirror value={submission.typed_code} height="60vh" />
           </Grid>
           <Grid item xs={12}>
             <Typography variant="h2">Results</Typography>
             <Typography variant="body1">Test case:</Typography>
             <Typography variant="body1">Output:</Typography>
             <Typography variant="body1">Expected output:</Typography>
-            <Typography variant="body1">Test cases remaining:</Typography>
-            <Typography variant="body1">
-              Opponent test cases remaining:
-            </Typography>
           </Grid>
         </Grid>
       </Grid>
