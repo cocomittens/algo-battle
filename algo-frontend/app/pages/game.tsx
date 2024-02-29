@@ -5,7 +5,7 @@ import NavBar from "../components/navbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
-import { TextareaAutosize } from "@mui/material";
+import { Input } from "@mui/base/Input";
 import CodeMirror from "@uiw/react-codemirror";
 
 export default function Game() {
@@ -38,8 +38,13 @@ export default function Game() {
             condimentum. Pellentesque pretium turpis eu nisi aliquet, vitae
             facilisis nulla pulvinar.
           </Typography>
-          <Grid item>
-            <TextareaAutosize minRows={3}></TextareaAutosize>
+          <Grid container item>
+            <Grid item xs={12}>
+              <Typography>Cat: yooo</Typography>
+            </Grid>
+            <Grid item xs={12}>
+              <Input placeholder="Type your code here" />
+            </Grid>
           </Grid>
         </Grid>
         <Grid container item xs={6}>
