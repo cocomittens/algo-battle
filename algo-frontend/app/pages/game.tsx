@@ -3,11 +3,14 @@ import { useState, useEffect } from "react";
 import { fetchGameData, updateGameData, sendSubmission } from "../util/game";
 import NavBar from "../components/navbar";
 import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
 import Grid from "@mui/material/Grid";
 import { Box } from "@mui/material";
 import { Input } from "@mui/base/Input";
 import CodeMirror from "@uiw/react-codemirror";
+import IconButton from "@material-ui/core/IconButton";
+import SendIcon from "@material-ui/icons/Send";
+import InputAdornment from "@mui/material/InputAdornment";
 
 export default function Game() {
   const [gameData, setGameData] = useState({ score: 0 });
@@ -61,7 +64,21 @@ export default function Game() {
               <Typography>Cat: yooo</Typography>
             </Grid>
             <Grid item xs={12}>
-              <Input placeholder="Type your message here..." />
+              <TextField
+                focused
+                color="primary"
+                fullWidth
+                placeholder="Type your message here..."
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton edge="end">
+                        <SendIcon color="primary" />
+                      </IconButton>
+                    </InputAdornment>
+                  ),
+                }}
+              />
             </Grid>
           </Grid>
         </Grid>

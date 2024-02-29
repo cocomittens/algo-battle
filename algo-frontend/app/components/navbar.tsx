@@ -64,7 +64,7 @@ export default function NavBar({ isGame = false, gameData }: NavBarProps) {
   return (
     <ThemeProvider theme={defaultTheme}>
       <Box sx={{ flexGrow: 1 }}>
-        <FormGroup>
+        {/* <FormGroup>
           <FormControlLabel
             control={
               <Switch
@@ -75,7 +75,7 @@ export default function NavBar({ isGame = false, gameData }: NavBarProps) {
             }
             label={auth ? "Logout" : "Login"}
           />
-        </FormGroup>
+        </FormGroup> */}
         <AppBar position="static">
           <Toolbar>
             <IconButton
