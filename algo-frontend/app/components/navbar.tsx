@@ -14,6 +14,8 @@ import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import Link from "@mui/material/Link";
 
+import { sendSubmission } from "../util/game";
+
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { darkTheme } from "../theme/dark";
 
@@ -23,7 +25,19 @@ import { darkTheme } from "../theme/dark";
 // logged out:
 // login, signup
 
-export default function NavBar() {
+// gameplay:
+// submit button
+
+interface NavBarProps {
+  isGame?: boolean;
+  gameData?: {
+    question_id: number;
+    lang: string;
+    typed_code: string;
+  };
+}
+
+export default function NavBar({ isGame = false, gameData }: NavBarProps) {
   const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
@@ -38,6 +52,12 @@ export default function NavBar() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  function handleSubmit() {
+    if (gameData) {
+      sendSubmission(gameData);
+    }
+  }
 
   const defaultTheme = createTheme(darkTheme());
 
@@ -72,6 +92,11 @@ export default function NavBar() {
                 <Link href="#game" color="#111">
                   Play
                 </Link>
+              </Typography>
+            )}
+            {isGame && (
+              <Typography onClick={handleSubmit} variant="h6">
+                Submit
               </Typography>
             )}
 

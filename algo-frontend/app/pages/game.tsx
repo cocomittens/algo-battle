@@ -6,6 +6,7 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import { TextareaAutosize } from "@mui/material";
+import CodeMirror from "@uiw/react-codemirror";
 
 export default function Game() {
   const [gameData, setGameData] = useState({ score: 0 });
@@ -16,13 +17,9 @@ export default function Game() {
       "class Solution { public double findMedianSortedArrays(int[] nums1, int[] nums2) { return 0; } }",
   });
 
-  function handleSubmit() {
-    sendSubmission(submission);
-  }
-
   return (
     <div>
-      <NavBar />
+      <NavBar isGame={true} gameData={submission} />
       <Grid container>
         <Grid container item xs={6}>
           <Typography variant="h2" textAlign="center">
@@ -47,14 +44,12 @@ export default function Game() {
         </Grid>
         <Grid container item xs={6}>
           <Grid item>
-            <TextareaAutosize minRows={3}></TextareaAutosize>
+            <CodeMirror value={submission.typed_code} height="20vh" />
           </Grid>
           <Grid item xs={12}>
             <Typography variant="h2">Results</Typography>
             <Typography variant="body1">Last failed test case:</Typography>
-            <Button onClick={handleSubmit}>
-              <Typography variant="button">Submit</Typography>
-            </Button>
+            <Typography variant="body1">Test cases remaining:</Typography>
           </Grid>
         </Grid>
       </Grid>
