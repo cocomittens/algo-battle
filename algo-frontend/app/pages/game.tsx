@@ -11,6 +11,12 @@ import CodeMirror from "@uiw/react-codemirror";
 import IconButton from "@material-ui/core/IconButton";
 import SendIcon from "@material-ui/icons/Send";
 import InputAdornment from "@mui/material/InputAdornment";
+import Button from "@mui/material/Button";
+
+const problemCategories = {
+  arrayString: ["array", "string"],
+  treeGraph: ["tree", "graph"],
+};
 
 export default function Game() {
   const [gameData, setGameData] = useState({ score: 0 });
@@ -26,7 +32,13 @@ export default function Game() {
       <NavBar isGame={true} gameData={submission} />
       <Grid container>
         <Grid container item xs={6}>
-          <Grid container item height="60vh" overflow="scroll">
+          <Grid
+            container
+            item
+            height="60vh"
+            overflow="scroll"
+            justifyContent="center"
+          >
             <Typography variant="h2" textAlign="center">
               Problem
             </Typography>
@@ -53,9 +65,11 @@ export default function Game() {
               tempus varius metus sit amet condimentum. Pellentesque pretium
               turpis eu nisi aliquet, vitae facilisis nulla pulvinar.
             </Typography>
-            <Typography variant="h3" textAlign="center">
-              Hints remaining: 3
-            </Typography>
+            <Button variant="contained" color="primary">
+              <Typography variant="button" textAlign="center">
+                Get a hint (3 left)
+              </Typography>
+            </Button>
           </Grid>
           <Grid container item height="30vh" overflow="scroll">
             <Grid item xs={12} bgcolor="#333">
@@ -87,7 +101,6 @@ export default function Game() {
             <CodeMirror value={submission.typed_code} height="60vh" />
           </Grid>
           <Grid item xs={12}>
-            <Typography variant="h2">Results</Typography>
             <Typography variant="body1">Test case:</Typography>
             <Typography variant="body1">Output:</Typography>
             <Typography variant="body1">Expected output:</Typography>

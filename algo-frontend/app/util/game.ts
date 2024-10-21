@@ -1,5 +1,6 @@
 const GAME_API_ENDPOINT = "http://localhost:8000/api/game/";
 const SUBMIT_API_ENDPOINT = "http://localhost:8000/api/submit/";
+const PROBLEM_API_ENDPOINT = "http://localhost:3001/problems";
 
 export const fetchGameData = async (id: number) => {
   const response = await fetch(`${GAME_API_ENDPOINT}${id}/`);
@@ -30,4 +31,12 @@ export const sendSubmission = async (data: any) => {
   });
   const responseData = await response.json();
   return responseData;
+};
+
+export const getProblem = async (tags: string[] = []) => {
+  const response = await fetch(
+    `${PROBLEM_API_ENDPOINT}?${tags.map((tag) => `tags=${tag}`).join("+")}`
+  );
+  const data = await response.json();
+  return data;
 };
